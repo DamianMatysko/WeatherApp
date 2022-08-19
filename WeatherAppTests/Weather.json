@@ -1,0 +1,46 @@
+{
+    "coord": {
+        "lon": 21.3333,
+        "lat": 48.6667
+    },
+    "weather": [
+        {
+            "id": 500,
+            "main": "Rain",
+            "description": "light rain",
+            "icon": "10d"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 21.9,
+        "feels_like": 22,
+        "temp_min": 20.92,
+        "temp_max": 22.27,
+        "pressure": 1007,
+        "humidity": 71
+    },
+    "visibility": 10000,
+    "wind": {
+        "speed": 1.54,
+        "deg": 20
+    },
+    "rain": {
+        "1h": 0.15
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1660543473,
+    "sys": {
+        "type": 1,
+        "id": 7049,
+        "country": "SK",
+        "sunrise": 1660534055,
+        "sunset": 1660585863
+    },
+    "timezone": 7200,
+    "id": 865084,
+    "name": "Kosice",
+    "cod": 200
+}
