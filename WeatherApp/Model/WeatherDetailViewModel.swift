@@ -109,4 +109,9 @@ class WeatherDetailViewModel: ObservableObject {
             .store(in: &cancellable)
     }
     
+    func deleteFavoritePlace(cityName: String) {
+        
+        
+    }
+    
 }

@@ -38,4 +38,10 @@ class WeatherAppUITests: XCTestCase {
             }
         }
     }
+    
+    func testSample() {
+        
+        
+                
+    }
 }

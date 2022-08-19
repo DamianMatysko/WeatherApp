@@ -16,13 +16,15 @@ struct CityLocation: Identifiable {
 
 struct WeatherDetailView: View {
     
+    
     @ObservedObject var viewModel: WeatherDetailViewModel
     
     @State var region: MKCoordinateRegion = MKCoordinateRegion(center: .init(latitude: 48.71692117035879, longitude: 21.25049061965836), latitudinalMeters: 500, longitudinalMeters: 500)
     
     @State var city: CityLocation = CityLocation(latitude: 48.71692117035879, longitude: 21.25049061965836)
     
-        
+ 
+    
     var body: some View {
         VStack{
             Map(coordinateRegion: $region,
@@ -77,6 +79,7 @@ struct WeatherDetailView: View {
             Text("Fetch failed \(error.localizedDescription)")
         }
     }
+    
     
 }
 

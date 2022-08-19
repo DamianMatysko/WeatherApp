@@ -12,14 +12,30 @@ import MapKit
 class WeatherViewModel: ObservableObject{
     @Published var fieldText = ""
     private let cityKey = "cityKey"
+    
+    
     internal init(weatherApi: WeatherAPI = WeatherAPI(), database: DatabaseManager = DatabaseManager(), city: String = "") {
         self.api = weatherApi
         self.city = city
         self.database = database
+        
+        detector
+            .debounce(for: .milliseconds(500), scheduler: DispatchQueue.main)
+            .removeDuplicates()
+            .filter({  value in
+                value.count > 3
+                
+            })
+            .sink( receiveValue: { recrived in
+                self.city = recrived
+            })
+            .store(in: &cancellable)
     }
+    
     var database: DatabaseManager
     var api: WeatherAPI = WeatherAPI()
     
+    var detector = PassthroughSubject<String, Never>()
     @Published var places: [City] = []
     
     @Published var weather: Loadable<WeatherResponse> = .notLoaded
@@ -65,9 +81,7 @@ class WeatherViewModel: ObservableObject{
               }
               .store(in: &cancellable)
     }
-    
-
-    
+        
     /// Fetch our data
     func fetch() async {
         Task{
@@ -110,4 +124,10 @@ class WeatherViewModel: ObservableObject{
     func fetchPlaces() {
         self.places = database.getData()
     }
+    
+    func deleteFavoritePlace(cityName: String) {
+        database.delete(cityName)
+        
+    }
+
 }
