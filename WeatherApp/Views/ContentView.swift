@@ -113,7 +113,7 @@ struct ContentView: View {
                     Label("Weather", systemImage: "cloud.sun")
                 }
             
-            Text("Second tab content")
+            NotificationsView()
                 .tabItem{
                     Label("Notifications", systemImage: "calendar")
                     
